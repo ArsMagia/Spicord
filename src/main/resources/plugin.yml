@@ -1,0 +1,8 @@
+name: Spicord
+version: ${project.version}
+main: ryo.utils.spicord.Spicord
+
+commands:
+  spicord:
+    aliases: [discord]
+  toggle:
