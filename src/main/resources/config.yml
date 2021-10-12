@@ -1,0 +1,4 @@
+discord:
+  token: "discord token here"
+  guild: "guild id here"
+  channel: "channel id here"
