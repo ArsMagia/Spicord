@@ -16,7 +16,7 @@ public class MinecraftChatListener implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         if (Spicord.getJDA() == null || Spicord.getGuild() == null || Spicord.getChannel() == null) return;
-        if (!SpicordManager.isAsyncChat()) return;
+        if (!SpicordManager.isToggleChat()) return;
         Player player = event.getPlayer();
         event.setCancelled(true);
 

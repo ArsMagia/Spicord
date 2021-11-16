@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 public class TextUtils {
 
     public static final String PREFIX = ChatColor.DARK_GREEN + "[" + ChatColor.GRAY + "Discord" + ChatColor.DARK_GREEN + "] " + ChatColor.RESET;
+    public static final String PREFIXPM = ChatColor.LIGHT_PURPLE + "[" + ChatColor.GRAY + "DiscordPM" + ChatColor.LIGHT_PURPLE + "] " + ChatColor.GRAY;
 
     public static String filterForMinecraft(String s) {
         if (s.charAt(0) == '/') s = "[" + s.charAt(0) + "]" + s.substring(1);

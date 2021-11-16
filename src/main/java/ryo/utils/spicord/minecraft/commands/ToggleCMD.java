@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import ryo.utils.spicord.spicord.SpicordManager;
 import ryo.utils.spicord.spicord.TextUtils;
 
+import java.util.Locale;
+
 public class ToggleCMD implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -15,13 +17,13 @@ public class ToggleCMD implements CommandExecutor {
 
         boolean toggle;
 
-        if (args.length == 1 && (args[0].equals("true") || args[0].equals("false"))) {
+        if (args.length >= 1 && (args[0].equals("true") || args[0].equals("false"))) {
             toggle = Boolean.parseBoolean(args[0].toLowerCase());
         }
-        else toggle = !SpicordManager.isAsyncChat();
+        else toggle = !SpicordManager.isToggleChat();
 
-        SpicordManager.setAsyncChat(toggle);
-        sender.sendMessage(TextUtils.PREFIX + "AsyncChat Toggle: " + (toggle ? ChatColor.GREEN.toString() + toggle : ChatColor.RED.toString() + toggle));
+        SpicordManager.setToggleChat(toggle);
+        sender.sendMessage(TextUtils.PREFIX + "Discord Chat Toggle: " + (toggle ? ChatColor.GREEN.toString() + toggle : ChatColor.RED.toString() + toggle));
         return true;
     }
 }

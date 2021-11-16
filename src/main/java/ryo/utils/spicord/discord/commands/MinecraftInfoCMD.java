@@ -22,18 +22,18 @@ public class MinecraftInfoCMD extends ListenerAdapter {
         if (event.isAcknowledged()) return;
         SelfUser selfUser = event.getJDA().getSelfUser();
 
-        String players = "";
-        for (int i = 0; i < Bukkit.getOnlinePlayers().size(); i++) {
-            List<Player> list = new ArrayList<>(Bukkit.getOnlinePlayers());
-            if (i % 3 == 0) players += list.get(i).getName() + " ";
-            else players += list.get(i).getName() + "\n";
-        }
-
         if (event.getName().equalsIgnoreCase(COMMAND)) {
+            String players = "";
+            for (int i = 0; i < Bukkit.getOnlinePlayers().size(); i++) {
+                List<Player> list = new ArrayList<>(Bukkit.getOnlinePlayers());
+                if (i % 3 == 0) players += list.get(i).getName() + " ";
+                else players += list.get(i).getName() + "\n";
+            }
+
             event.replyEmbeds(new EmbedBuilder()
                     .setColor(Color.GRAY)
                     .setTitle("=====[ " + Spicord.getInstance().getServer().getServerName() + " ]=====")
-                    .setDescription("Various Information can be found here!")
+                    .setDescription("Minecraft Server Info")
                     .setAuthor(selfUser.getName(), null, selfUser.getAvatarUrl())
                     .addField("Server Version", Bukkit.getServer().getBukkitVersion(), false)
                     .addField("Online Players", players, false)
