@@ -43,18 +43,18 @@ public class PrivateMessageCMD extends ListenerAdapter {
             // Embed
             EmbedBuilder embedBuilder = new EmbedBuilder()
                     .setColor(Color.GRAY)
-                    .setTitle("Send a private message...")
+                    .setTitle("プライベートメッセージの送信")
                     .setDescription("```" + text + "```")
                     .setAuthor(user.getName(), null, user.getAvatarUrl());
 
             // SelectionMenu
-            SelectionMenu.Builder menuBuilder = SelectionMenu.create("message");
-            menuBuilder.setPlaceholder("Select a Player");
+            SelectionMenu.Builder menuBuilder = SelectionMenu.create("message"); // ToDo この部分("message")を変えて作成者を判別する
+            menuBuilder.setPlaceholder("プレイヤーを選択");
             menuBuilder.setRequiredRange(1, 25); // 25枠が限界らしい
             Bukkit.getOnlinePlayers().forEach(player -> menuBuilder.addOption(player.getName(), "message-" + player.getUniqueId(), "PM to " + player.getName()));
             if (Bukkit.getOnlinePlayers().size() == 0) {
-                menuBuilder.addOption("No Players Found", "message-none", "");
-                menuBuilder.setPlaceholder("No Players Found");
+                menuBuilder.addOption("プレイヤーが見つかりませんでした", "message-none", "");
+                menuBuilder.setPlaceholder("プレイヤーが見つかりませんでした");
                 menuBuilder.setDisabled(true);
             }
 
@@ -104,9 +104,9 @@ public class PrivateMessageCMD extends ListenerAdapter {
 
         MessageEmbed sentMessage = new EmbedBuilder()
                 .setColor(Color.GRAY)
-                .setTitle("\uD83D\uDCE4" + "Your message has successfully been sent!")
+                .setTitle("\uD83D\uDCE4" + "メッセージが送信されました！")
                 .setDescription("```" + pendingMessage.get(event.getUser()) + "```")
-                .setAuthor(user.getName(), null, user.getAvatarUrl()).addField("Message receiver", players, false)
+                .setAuthor(user.getName(), null, user.getAvatarUrl()).addField("メッセージの対象", players, false)
                 .build();
 
         if (event.getMessage() != null) {

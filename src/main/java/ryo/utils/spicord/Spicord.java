@@ -82,16 +82,16 @@ public final class Spicord extends JavaPlugin {
         } catch (LoginException | InterruptedException e) {
             e.printStackTrace();
             getServer().getConsoleSender().sendMessage(
-                    ChatColor.RED + "Spicord failed to load. Check your " + ChatColor.GRAY + "config.yml " +
-                    ChatColor.RED + "and " + ChatColor.GRAY + "Discord Guild & Channel " + ChatColor.RED + ".");
+                    ChatColor.RED + "Spicordのロードに失敗しました。 " + ChatColor.GRAY + "config.yml " +
+                    ChatColor.RED + "と" + ChatColor.GRAY + "Discordサーバー、チャンネル" + ChatColor.RED + "を確認してください。");
         }
 
         //即テスト用
         for (Guild guild : jda.getGuilds()) {
             CommandListUpdateAction commands = guild.updateCommands();
-            commands.addCommands(new CommandData("mcinfo", "Get the server info."));
-            commands.addCommands(new CommandData("message", "Send a private message.")
-                    .addOptions(new OptionData(OptionType.STRING, "text", "Insert your message here.").setRequired(true))
+            commands.addCommands(new CommandData("mcinfo", "サーバーの情報を取得"));
+            commands.addCommands(new CommandData("message", "プライベートメッセージを送信")
+                    .addOptions(new OptionData(OptionType.STRING, "text", "メッセージ").setRequired(true))
             );
             commands.queue();
         }

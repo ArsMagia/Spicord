@@ -33,10 +33,10 @@ public class MinecraftInfoCMD extends ListenerAdapter {
             event.replyEmbeds(new EmbedBuilder()
                     .setColor(Color.GRAY)
                     .setTitle("=====[ " + Spicord.getInstance().getServer().getServerName() + " ]=====")
-                    .setDescription("Minecraft Server Info")
+                    .setDescription("Minecraftのサーバー情報")
                     .setAuthor(selfUser.getName(), null, selfUser.getAvatarUrl())
-                    .addField("Server Version", Bukkit.getServer().getBukkitVersion(), false)
-                    .addField("Online Players", players, false)
+                    .addField("サーバーのバージョン", Bukkit.getServer().getBukkitVersion(), false)
+                    .addField("オンラインプレイヤー", players, false)
                     .build()
             ).setEphemeral(true).queue();
         }
